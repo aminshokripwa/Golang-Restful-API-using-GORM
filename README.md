@@ -3,8 +3,8 @@
 ## Getting Started
 
 ### Folder Structure
+```
 .
-
 |-- .env
 |-- main.go
 |-- README.md
@@ -72,9 +72,10 @@ To be able to login, you need to use the create new user endpoint to set up a us
 ```
 {
 	"Username": "aminpwa@fake-domain.com",
-    "Password": "secret"
+	"Password": "secret"
 }
 ```
+
 *** Output ***
 
 Note that the current implementation still returns the encrypted password, this needs to be removed from the response.
@@ -87,6 +88,7 @@ Note that the current implementation still returns the encrypted password, this 
     "message": "success",
     "status": true
 }
+```
 
 * POST    `api/v1/register` create a new account with a username, password and name
 
@@ -97,6 +99,7 @@ Note that the current implementation still returns the encrypted password, this 
     "Password": "secret"
 }
 ```
+
 *** Output ***
 
 Note that the current implementation still returns the encrypted password, this needs to be removed from the response.
@@ -122,9 +125,3 @@ Note that the current implementation still returns the encrypted password, this 
 * DELETE  `api/v1/users/1` delete the user with id = 1
 
 Now make all calls pass the token in the header as a ***Bearer Token***.
-
-## Hint
-
-The payload portion (2nd part) of the token can be decode as it is base 64 encoded.
-
-`echo eyJleHAiOjkwMDAwMDAwMDAwMCwicGFzc3dvcmQiOiJzZWNyZXQiLCJ1c2VybmFtZSI6ImFtYXZpQHh5ei5jb20ifQ | base64 -D`
