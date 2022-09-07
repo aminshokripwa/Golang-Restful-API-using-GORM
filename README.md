@@ -22,6 +22,7 @@
 |   |   |-- utils.go
 ```
 Ensure you create directory in your directory.
+
 `git clone https://github.com/aminshokripwa/Golang-Restful-API-using-GORM.git`
 
 ## Download the packages used to create this rest API
