@@ -1,0 +1,210 @@
+{
+	"info": {
+		"_postman_id": "36069159-c14c-4489-8e75-459dcd005d36",
+		"name": "Golang Restful API using GORM ORM (MySQL)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Sign Up",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"Name\": \"Amin_pwa\",\r\n\t\"Username\": \"aminpwa@fake-domain.com11\",\r\n    \"Password\": \"success\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8085/api/v1/register",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"v1",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Sign In",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"Username\": \"aminpwa@fake-domain.com\",\r\n  \"Password\": \"secret\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8085/api/v1/login",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"v1",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Data Of Use One",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjkwMDAwMDAwMDAwMCwidXNlcm5hbWUiOiJhbWluLnB3YTFAZmFrZS1kb21haW4uY29tIn0.DIP2RmjA-ixG52ae1txevJIWZHVKvS8XbFuQxKPktkc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8085/api/v1/users/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update User Data",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjkwMDAwMDAwMDAwMCwidXNlcm5hbWUiOiJhbWluLnB3YTFAZmFrZS1kb21haW4uY29tIn0.DIP2RmjA-ixG52ae1txevJIWZHVKvS8XbFuQxKPktkc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"Name\": \"aminpwa\",\r\n\t\"Username\": \"Amin_pwa@fake-domain.com\",\r\n    \"Password\": \"secret\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8085/api/v1/users/28",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"28"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Remove User One",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjEyMDAwMDAwMDAwMCwidXNlcm5hbWUiOiJqb2UuYmxva2VAZmFrZS1kb21haW4uY29tIn0.5mDC5G3mEvBz9lu02GOcz5By2O3Nx0ZfFY6OXNu0qYM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8085/api/v1/users/19",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"19"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
