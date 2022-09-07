@@ -35,15 +35,30 @@ func GetUser(w http.ResponseWriter, r *http.Request) {
 
 // Get all the users in the users table
 func GetUsers(w http.ResponseWriter, r *http.Request) {
-	resp := u.Message(true, "success")
-	users := models.GetUsers()
+	//fmt.Println(pageID)
+	page, limit := PaginationUrl(r)
+	//resp := u.Message(true, "success")
+	users := models.GetUsers(page, limit)
 	if users == nil {
 		u.Respond(w, u.Message(false, "No users found"))
 		return
 	}
+
+	total, pervious_page, next_page := models.PaginationCalculate(page, limit)
+	resp := u.PaginationDetails(limit, page, total, pervious_page, next_page)
+
 	resp["data"] = users
 	u.Respond(w, resp)
 	return
+}
+
+func PaginationUrl(r *http.Request) (int, int) {
+	pageID := r.URL.Query().Get("page")
+	limitID := r.URL.Query().Get("limit")
+
+	page, _ := strconv.Atoi(pageID)
+	limit, _ := strconv.Atoi(limitID)
+	return page, limit
 }
 
 func CreateUser(w http.ResponseWriter, r *http.Request) {

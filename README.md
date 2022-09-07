@@ -119,10 +119,9 @@ Note that the current implementation still returns the encrypted password, this 
     }
 }
 
-* GET     `api/v1/users` retrieve all users
-* GET     `api/v1/users/1` retrieve user with id = 1
-* POST    `api/v1/users` create a new user
-* PUT     `api/v1/users/1` update the record with id = 1
-* DELETE  `api/v1/users/1` delete the user with id = 1
+* GET     `api/v1/users?page=1&limit=4` Retrieving the paged list of users
+* GET     `api/v1/users/1` Retrieve user with id = 1
+* PUT     `api/v1/users/1` Update the record with id = 1
+* DELETE  `api/v1/users/1` Delete the user with id = 1
 
 Now make all calls pass the token in the header as a ***Bearer Token***.

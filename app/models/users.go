@@ -2,6 +2,7 @@ package models
 
 import (
 	"fmt"
+	"math"
 	"strconv"
 	"strings"
 
@@ -76,15 +77,44 @@ func GetUser(id int) *User {
 	return user
 }
 
-func GetUsers() []*User {
+func GetUsers(page int, limit int) []*User {
+	limit, offset := PaginationModel(limit, page)
 	users := make([]*User, 0)
-	err := GetDB().Find(&users).Error
+	//fmt.Println(offset)
+	err := GetDB().Select("id, name , username , created_at , updated_at , deleted_at").Limit(limit).Offset(offset).Find(&users).Error
 	if err != nil {
 		fmt.Println(err)
 		return nil
 	}
 
 	return users
+}
+
+func PaginationModel(limit int, page int) (int, int) {
+	if limit < 1 || limit == 0 {
+		limit = 3
+	}
+	if page < 1 {
+		page = 0
+	}
+	offset := limit * (page - 1)
+	return limit, offset
+}
+
+func PaginationCalculate(page int, limit int) (int, int, int) {
+	users := make([]*User, 0)
+	GetDB().Find(&users)
+	var next_page int = 0
+	var pervious_page int = 0
+	usercount := len(users) / int(limit)
+	maxpage := math.RoundToEven(float64(usercount) + 0.6)
+	if page < int(maxpage) {
+		next_page = page + 1
+	}
+	if page > 1 {
+		pervious_page = page - 1
+	}
+	return int(maxpage), pervious_page, next_page
 }
 
 func UpdateUser(user *User, id int) (err error) {

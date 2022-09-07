@@ -12,7 +12,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n\t\"Name\": \"Amin_pwa\",\r\n\t\"Username\": \"aminpwa@fake-domain.com11\",\r\n    \"Password\": \"success\"\r\n}",
+					"raw": "{\r\n\t\"Name\": \"Amin_pwa\",\r\n\t\"Username\": \"aminpwa@fake-domain.com\",\r\n    \"Password\": \"secret\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -72,7 +72,7 @@
 			"response": []
 		},
 		{
-			"name": "Data Of Use One",
+			"name": "Data Of User One",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -113,6 +113,62 @@
 						"v1",
 						"users",
 						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Data Of All Users",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjkwMDAwMDAwMDAwMCwidXNlcm5hbWUiOiJhbWlucHdhQGZha2UtZG9tYWluLmNvbTExIn0.9MvhdFDSmXr2U3nXbYOXQfyGmO1PrBA0FjoT11J3eOk",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8085/api/v1/users?page=1&limit=4",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"v1",
+						"users"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "4"
+						}
 					]
 				}
 			},
